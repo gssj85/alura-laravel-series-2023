@@ -6,7 +6,7 @@ use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\File;
 
-class SeriesFormRequest extends FormRequest
+class SeriesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +27,7 @@ class SeriesFormRequest extends FormRequest
     {
         return [
             'nome' => ['required', 'min:3'],
-            'cover' => [File::image()]
+//            'cover' => [File::image()]
         ];
     }
 

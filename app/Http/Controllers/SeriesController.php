@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Http\Middleware\Autenticador;
-use App\Http\Requests\SeriesFormRequest;
+use App\Http\Requests\SeriesRequest;
 use App\Mail\SeriesCreated;
 use App\Models\Series;
 use App\Models\User;
@@ -37,7 +37,7 @@ class SeriesController extends Controller
         return view('series.create');
     }
 
-    public function store(SeriesFormRequest $request): RedirectResponse
+    public function store(SeriesRequest $request): RedirectResponse
     {
         $coverPath = $request->hasFile('cover')
             ? $request->file('cover')
@@ -72,7 +72,7 @@ class SeriesController extends Controller
         return view('series.edit')->with('serie', $series);
     }
 
-    public function update(Series $series, SeriesFormRequest $request)
+    public function update(Series $series, SeriesRequest $request)
     {
         $series->fill($request->all());
         $series->save();

@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Http\Requests\SeriesFormRequest;
+use App\Http\Requests\SeriesRequest;
 use App\Models\Episode;
 use App\Models\Season;
 use App\Models\Series;
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class EloquentSeriesRepository implements SeriesRepository
 {
-    public function add(SeriesFormRequest $request): Series
+    public function add(SeriesRequest $request): Series
     {
         return DB::transaction(static function () use ($request) {
             $serie = Series::create([

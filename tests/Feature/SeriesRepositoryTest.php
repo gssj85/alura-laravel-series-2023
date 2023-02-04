@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Http\Requests\SeriesFormRequest;
+use App\Http\Requests\SeriesRequest;
 use App\Repositories\SeriesRepository;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -16,7 +16,7 @@ class SeriesRepositoryTest extends TestCase
         // Arrange
         /** @var SeriesRepository $repository */
         $repository = $this->app->make(SeriesRepository::class);
-        $request = new SeriesFormRequest();
+        $request = new SeriesRequest();
         $request->nome = 'Nome da série';
         $request->seasonsQty = 1;
         $request->episodesPerSeason = 1;
